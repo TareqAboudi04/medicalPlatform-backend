@@ -84,21 +84,22 @@ public class SecurityConfig {
         return http.build();
     }
    //// to allow Angular to access this API during development.
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
+   @Bean
+   public CorsConfigurationSource corsConfigurationSource() {
+       CorsConfiguration config = new CorsConfiguration();
 
-        config.setAllowedOrigins(List.of(
-                "http://localhost:4200",
-                "https://medicalplatform-frontend-xxxxx.polandcentral-01.azurewebsites.net"
-        ));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true);
+       config.setAllowedOriginPatterns(List.of(
+               "http://localhost:4200",
+               "https://medicalplatform-frontend*.polandcentral-01.azurewebsites.net"
+       ));
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
+       config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+       config.setAllowedHeaders(List.of("*"));
+       config.setAllowCredentials(true);
 
-        return source;
-    }
+       UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+       source.registerCorsConfiguration("/**", config);
+
+       return source;
+   }
 }

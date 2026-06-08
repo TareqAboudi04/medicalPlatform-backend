@@ -88,9 +88,9 @@ public class SecurityConfig {
    public CorsConfigurationSource corsConfigurationSource() {
        CorsConfiguration config = new CorsConfiguration();
 
-       config.setAllowedOriginPatterns(List.of(
+       config.setAllowedOrigins(List.of(
                "http://localhost:4200",
-               "https://medicalplatform-frontend*.polandcentral-01.azurewebsites.net"
+               "https://medicalplatform-frontend-dkadhehtghc0hhfe.polandcentral-01.azurewebsites.net"
        ));
 
        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
